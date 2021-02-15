@@ -2,10 +2,27 @@ import React, { Component } from "react";
 
 export default class TodoItem extends Component {
   render() {
+    const { title, handleDelete, handleEdit } = this.props;
     return (
-      <div>
-        <h1>Hello from item</h1>
-      </div>
+      <li className="list-group-item border-top text-capitalize d-flex justify-content-between my-2">
+        <h6>{title}</h6>
+        <div className="todo-icon">
+          <span
+            className="mx-2 text-success"
+            role="button"
+            onClick={handleEdit}
+          >
+            <i className="fas fa-pen"></i>
+          </span>
+          <span
+            className="mx-2 text-danger"
+            role="button"
+            onClick={handleDelete}
+          >
+            <i className="fas fa-trash"></i>
+          </span>
+        </div>
+      </li>
     );
   }
 }
